@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://catman.local/schemas/artifacts/artifact.schema.json",
+  "title": "Catman Agent UI Artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "version", "title", "status", "data", "provenance", "quality", "actions"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "type": {"type": "string", "enum": ["insight_brief", "kpi_card", "time_series", "waterfall", "assortment_matrix", "cdt_map", "diagnostic_tree", "scenario_comparison", "decision_matrix", "retailer_story", "watchlist", "action_checklist"]},
+    "version": {"type": "integer", "minimum": 1},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["draft", "in_progress", "ready", "obsolete"]},
+    "data": {},
+    "provenance": {"type": "object"},
+    "quality": {
+      "type": "object",
+      "required": ["confidence", "assumptions", "limitations"],
+      "properties": {
+        "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "actions": {"type": "array", "items": {"$ref": "#/$defs/action"}}
+  },
+  "$defs": {
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action_type", "label"],
+      "properties": {"action_type": {"type": "string"}, "label": {"type": "string"}, "payload": {"type": "object"}}
+    }
+  }
+}

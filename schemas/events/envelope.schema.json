@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://catman.local/schemas/events/envelope.schema.json",
+  "title": "Catman Agent UI Event Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "protocol_version", "run_id", "event_id", "timestamp", "type", "payload", "provenance", "permissions"],
+  "properties": {
+    "protocol": {"const": "catman-agent-ui"},
+    "protocol_version": {"type": "string"},
+    "run_id": {"type": "string", "minLength": 1},
+    "event_id": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "type": {"type": "string", "minLength": 1},
+    "payload": {"type": "object"},
+    "provenance": {"$ref": "#/$defs/provenance"},
+    "permissions": {"$ref": "#/$defs/permissions"}
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "required": ["sources", "skills", "generated_at"],
+      "properties": {
+        "sources": {"type": "array", "items": {"type": "object"}},
+        "skills": {"type": "array", "items": {"type": "string"}},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "required": ["display", "drilldown", "export", "actions"],
+      "properties": {
+        "display": {"type": "boolean"},
+        "drilldown": {"type": "boolean"},
+        "export": {"type": "boolean"},
+        "actions": {"type": "array", "items": {"type": "object"}}
+      }
+    }
+  }
+}

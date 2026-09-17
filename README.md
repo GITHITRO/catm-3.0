@@ -1,11 +1,30 @@
-<div align="center">
+# Catman 3.0 — Agent UI Framework
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Provider-agnostic framework for turning any agent runtime into a visually simple, deeply competent workspace with Rooms, Chat, typed Artifacts, provenance and controlled Actions.
 
-  <h1>Built with AI Studio</h2>
+## Core idea
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+```text
+Any Agent Runtime → normalized events → Catman UI Framework → Rooms + Chat + Artifacts
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+The runtime may be LangGraph, OpenAI Agents, Claude, DeepSeek Harness or a custom orchestrator. The UI depends on contracts, not on the provider.
 
-</div>
+## Repository
+
+- `docs/blueprint.md` — product and architecture blueprint.
+- `docs/architecture.md` — framework layers and boundaries.
+- `docs/protocol.md` — normalized event protocol.
+- `docs/artifact-model.md` — typed artifact model.
+- `docs/rooms.md` — contextual workspaces.
+- `docs/skills.md` — common, domain and room skills.
+- `docs/roadmap.md` — implementation milestones.
+- `schemas/` — machine-readable contracts.
+
+## Experience
+
+A user asks a business question. The agent finds the right data, validates it, selects the appropriate skill, executes calculations through tools and returns a concise insight plus a beautiful, inspectable artifact.
+
+## Status
+
+Blueprint branch. Contract spike and reference UI are next.
