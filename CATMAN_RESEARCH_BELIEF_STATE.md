@@ -1,0 +1,3 @@
+Полный документ belief state подготовлен: миссия Catman; P0 demo-сценарии; deterministic-vs-generative boundaries; evidence-first и human approval; лёгкий стек Skills + MCP + SQLite + SQL/Python; provider-agnostic runtime strategy; P0 MCP tools; переносимые репозиторные артефакты; три research workstreams (Reuse Scout, Video & UX Scout, Reconstruction Architect); readiness/source/video policies; C-level framing; existing SSOT precedence; non-goals; eval gates; open questions; required research outputs; стартовый prompt для нового агента.
+
+Содержание будет записано в Markdown полностью после подтверждения.
